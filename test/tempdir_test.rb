@@ -14,9 +14,9 @@ class TempdirTest < Test::Unit::TestCase
 
   def test_tempdir
     begin
-      assert_equal Tempdir.tmpdir, Dir.tmpdir
+      assert_equal Tempdir.tmpdir.to_s, Dir.tmpdir.to_s
       Tempdir.tmpdir = Dir.tmpdir + '/foobar'
-      assert_equal Tempdir.tmpdir, Dir.tmpdir + '/foobar'
+      assert_equal Tempdir.tmpdir.to_s, Pathname.new(Dir.tmpdir + '/foobar').to_s
     ensure
       Tempdir.tmpdir = Dir.tmpdir
     end

@@ -2,9 +2,9 @@ require 'tmpdir'
 require 'pathname'
 
 class Tempdir
-  @@tmpdir = Dir.tmpdir
+  @@tmpdir = Pathname.new(Dir.tmpdir)
   def self.tmpdir; @@tmpdir; end
-  def self.tmpdir=(d); @@tmpdir = d; end
+  def self.tmpdir=(d); @@tmpdir = Pathname.new(d); end
 
   attr_reader :dir
   def initialize(name = nil)
