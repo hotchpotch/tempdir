@@ -6,6 +6,7 @@ class TempdirTest < Test::Unit::TestCase
     _dir = nil
     Tempdir.open do |dir|
       assert dir.directory?
+      assert_equal dir.class, Pathname
       _dir = dir.clone
     end
     assert !_dir.directory?
