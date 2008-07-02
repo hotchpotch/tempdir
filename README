@@ -1,0 +1,24 @@
+
+= tempdir
+
+Tempdir likes Tmpfile class.
+
+== Description
+
+== Synopsis
+
+ Tempdir.open do |dir|
+   dir.class.should == Pathname
+ end # tmp directory unlinked.
+
+or
+
+ tmpdir = Tempdir.open
+ tmpdir.dir.class should == Pathname
+ tmpdir.close() # tmp directory unlinked.
+
+== Copyright
+
+Author::    Yuichi Tateno <hotchpotch@gmail.com>
+Copyright:: Copyright (c) 2008 Yuichi Tateno
+License::   MIT
