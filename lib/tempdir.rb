@@ -2,6 +2,10 @@ require 'tmpdir'
 require 'pathname'
 
 class Tempdir
+  @@tmpdir = Dir.tmpdir
+  def self.tmpdir; @@tmpdir; end
+  def self.tmpdir=(d); @@tmpdir = d; end
+
   attr_reader :dir
   def initialize(name = nil)
     @dir = create_tmpdir(name)
@@ -32,7 +36,7 @@ class Tempdir
   end
 
   def create_tmpdir(name)
-    tmp = Pathname.new(Dir.tmpdir)
+    tmp = Pathname.new self.class.tmpdir
     if name
       tmp = tmp.join(name)
       raise "#{tmp.to_s} is exist." if tmp.exist?
