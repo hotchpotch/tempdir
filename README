@@ -14,7 +14,7 @@ Tempdir likes Tmpfile class.
 or
 
  tmpdir = Tempdir.open
- tmpdir.dir.class should == Pathname
+ tmpdir.dir.class.should == Pathname
  tmpdir.close() # tmp directory unlinked.
 
 == Copyright
